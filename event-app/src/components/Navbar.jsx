@@ -2,15 +2,15 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useAuth } from '@/context/AuthContext';
 
 export default function Navbar() {
     const pathname = usePathname();
+    const { user, signOut, loading } = useAuth();
 
-    const navLinks = [
-        { href: '/', label: 'Create Event' },
-        { href: '/events', label: 'Events' },
-        { href: '/login', label: 'Sign In' },
-    ];
+    const handleSignOut = async () => {
+        await signOut();
+    };
 
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 glass-effect">
@@ -27,28 +27,95 @@ export default function Navbar() {
 
                 {/* Navigation Links */}
                 <div className="flex items-center gap-2 sm:gap-4">
-                    {navLinks.map((link) => {
-                        const isActive = pathname === link.href;
-                        return (
+                    {/* Main nav links - only show when authenticated */}
+                    {user && (
+                        <>
                             <Link
-                                key={link.href}
-                                href={link.href}
+                                href="/"
                                 className={`
                   relative px-3 py-2 sm:px-4 rounded-lg text-sm sm:text-base font-medium
                   transition-all duration-300 ease-out
-                  ${isActive
+                  ${pathname === '/'
                                         ? 'text-white bg-indigo-500/20 shadow-lg shadow-indigo-500/20'
                                         : 'text-gray-400 hover:text-white hover:bg-white/5'
                                     }
                 `}
                             >
-                                {link.label}
-                                {isActive && (
+                                Create Event
+                                {pathname === '/' && (
                                     <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full" />
                                 )}
                             </Link>
-                        );
-                    })}
+                            <Link
+                                href="/events"
+                                className={`
+                  relative px-3 py-2 sm:px-4 rounded-lg text-sm sm:text-base font-medium
+                  transition-all duration-300 ease-out
+                  ${pathname === '/events'
+                                        ? 'text-white bg-indigo-500/20 shadow-lg shadow-indigo-500/20'
+                                        : 'text-gray-400 hover:text-white hover:bg-white/5'
+                                    }
+                `}
+                            >
+                                Events
+                                {pathname === '/events' && (
+                                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full" />
+                                )}
+                            </Link>
+                        </>
+                    )}
+
+                    {/* Auth section */}
+                    {!loading && (
+                        <>
+                            {user ? (
+                                <div className="flex items-center gap-3">
+                                    {/* User avatar */}
+                                    <div className="hidden sm:flex items-center gap-2">
+                                        {user.photoURL ? (
+                                            <img
+                                                src={user.photoURL}
+                                                alt={user.displayName || 'User'}
+                                                className="w-8 h-8 rounded-full border-2 border-indigo-500/50"
+                                            />
+                                        ) : (
+                                            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white text-sm font-medium">
+                                                {user.displayName?.charAt(0) || user.email?.charAt(0) || 'U'}
+                                            </div>
+                                        )}
+                                        <span className="text-sm text-gray-300 max-w-[100px] truncate">
+                                            {user.displayName || user.email}
+                                        </span>
+                                    </div>
+
+                                    {/* Sign out button */}
+                                    <button
+                                        onClick={handleSignOut}
+                                        className="px-3 py-2 sm:px-4 rounded-lg text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-all duration-300"
+                                    >
+                                        Sign Out
+                                    </button>
+                                </div>
+                            ) : (
+                                <Link
+                                    href="/login"
+                                    className={`
+                    relative px-3 py-2 sm:px-4 rounded-lg text-sm sm:text-base font-medium
+                    transition-all duration-300 ease-out
+                    ${pathname === '/login'
+                                            ? 'text-white bg-indigo-500/20 shadow-lg shadow-indigo-500/20'
+                                            : 'text-gray-400 hover:text-white hover:bg-white/5'
+                                        }
+                  `}
+                                >
+                                    Sign In
+                                    {pathname === '/login' && (
+                                        <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1/2 h-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full" />
+                                    )}
+                                </Link>
+                            )}
+                        </>
+                    )}
                 </div>
             </div>
         </nav>

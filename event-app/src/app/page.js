@@ -2,8 +2,10 @@
 
 import { useState } from 'react';
 import { Button, Input, Textarea } from '@/components';
+import { useAuth } from '@/context/AuthContext';
 
 export default function Home() {
+  const { user } = useAuth();
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -23,7 +25,7 @@ export default function Home() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate submission (no Firebase logic yet)
+    // Simulate submission (no Firebase logic yet - will be added in Part 3)
     setTimeout(() => {
       setIsSubmitting(false);
       setShowSuccess(true);
@@ -45,6 +47,11 @@ export default function Home() {
 
       {/* Header */}
       <div className="text-center mb-12 animate-fade-in-up">
+        {user && (
+          <p className="text-indigo-400 text-sm font-medium mb-2">
+            Welcome back, {user.displayName?.split(' ')[0] || 'there'}! 👋
+          </p>
+        )}
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
           Create Your <span className="gradient-text">Event</span>
         </h1>
