@@ -70,17 +70,10 @@ export default function LoginPage() {
                     <div className="relative z-10 flex flex-col h-full justify-end p-4 pb-12">
                         {/* Tagline */}
                         <div>
-                            <h2 className="text-white text-3xl sm:text-4xl font-semibold text-center leading-tight mb-8">
+                            <h2 className="text-white text-3xl sm:text-4xl font-semibold text-center leading-tight">
                                 Create events.<br />
                                 Manage with ease.
                             </h2>
-
-                            {/* Carousel dots */}
-                            <div className="flex justify-center gap-2">
-                                <span className="w-2 h-2 rounded-full bg-white/40" />
-                                <span className="w-2 h-2 rounded-full bg-white/40" />
-                                <span className="w-6 h-2 rounded-full bg-white" />
-                            </div>
                         </div>
                     </div>
                 </div>

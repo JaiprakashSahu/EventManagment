@@ -16,15 +16,14 @@ const EVENTS_COLLECTION = 'events';
 
 /**
  * Create a new event in Firestore
- * @param {Object} eventData - Event data (title, description)
+ * @param {Object} eventData - Event data (title, description, date, time, duration, location, guests, etc.)
  * @param {string} userId - The ID of the user creating the event
  * @returns {Promise<{success: boolean, id?: string, error?: string}>}
  */
 export async function createEvent(eventData, userId) {
     try {
         const docRef = await addDoc(collection(db, EVENTS_COLLECTION), {
-            title: eventData.title,
-            description: eventData.description,
+            ...eventData,
             userId: userId,
             createdAt: serverTimestamp(),
         });

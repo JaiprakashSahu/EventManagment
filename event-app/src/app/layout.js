@@ -1,6 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components";
 import { AuthProvider } from "@/context/AuthContext";
 import { AuthGuard } from "@/components/LoadingScreen";
 import LayoutWrapper from "./LayoutWrapper";
@@ -28,7 +27,6 @@ export default function RootLayout({ children }) {
       >
         <AuthProvider>
           <AuthGuard>
-            <Navbar />
             <LayoutWrapper>
               {children}
             </LayoutWrapper>
