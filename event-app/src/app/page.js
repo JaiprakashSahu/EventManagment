@@ -32,18 +32,13 @@ export default function Home() {
       return;
     }
 
-
     const eventData = {
       title,
       description,
       date,
       time,
-      duration,
+      endTime,
       location,
-      guests: guests.map(g => g.email),
-      notificationEmail,
-      notificationSlack,
-      reminder
     };
 
     const result = await createEvent(eventData, user.uid);
