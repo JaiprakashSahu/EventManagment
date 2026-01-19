@@ -27,11 +27,26 @@ export function AuthProvider({ children }) {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
             if (firebaseUser) {
+                // Fetch user data from Firestore for firstName/lastName
+                const userDocRef = doc(db, 'users', firebaseUser.uid);
+                const userDoc = await getDoc(userDocRef);
+
+                let firstName = '';
+                let lastName = '';
+
+                if (userDoc.exists()) {
+                    const firestoreData = userDoc.data();
+                    firstName = firestoreData.firstName || '';
+                    lastName = firestoreData.lastName || '';
+                }
+
                 // User is signed in
                 const userData = {
                     uid: firebaseUser.uid,
                     email: firebaseUser.email,
-                    displayName: firebaseUser.displayName,
+                    displayName: `${firstName} ${lastName}`.trim() || firebaseUser.displayName,
+                    firstName: firstName,
+                    lastName: lastName,
                     photoURL: firebaseUser.photoURL,
                 };
                 setUser(userData);
@@ -67,6 +82,11 @@ export function AuthProvider({ children }) {
             const result = await signInWithPopup(auth, googleProvider);
             const firebaseUser = result.user;
 
+            // Split displayName into firstName and lastName
+            const nameParts = firebaseUser.displayName?.split(' ') || [];
+            const firstName = nameParts[0] || '';
+            const lastName = nameParts.slice(1).join(' ') || '';
+
             // Check if user exists in Firestore
             const userDocRef = doc(db, 'users', firebaseUser.uid);
             const userDoc = await getDoc(userDocRef);
@@ -76,7 +96,8 @@ export function AuthProvider({ children }) {
                 await setDoc(userDocRef, {
                     uid: firebaseUser.uid,
                     email: firebaseUser.email,
-                    displayName: firebaseUser.displayName,
+                    firstName: firstName,
+                    lastName: lastName,
                     photoURL: firebaseUser.photoURL,
                     createdAt: serverTimestamp(),
                     lastLoginAt: serverTimestamp(),

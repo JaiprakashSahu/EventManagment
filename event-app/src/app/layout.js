@@ -3,6 +3,7 @@ import "./globals.css";
 import { Navbar } from "@/components";
 import { AuthProvider } from "@/context/AuthContext";
 import { AuthGuard } from "@/components/LoadingScreen";
+import LayoutWrapper from "./LayoutWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,9 +29,9 @@ export default function RootLayout({ children }) {
         <AuthProvider>
           <AuthGuard>
             <Navbar />
-            <main className="pt-16 min-h-screen">
+            <LayoutWrapper>
               {children}
-            </main>
+            </LayoutWrapper>
           </AuthGuard>
         </AuthProvider>
       </body>

@@ -12,6 +12,11 @@ export default function Navbar() {
         await signOut();
     };
 
+    // Don't show navbar on login page or events page (has custom navigation)
+    if (pathname === '/login' || pathname === '/events') {
+        return null;
+    }
+
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 glass-effect">
             <div className="container-custom flex items-center justify-between h-16">

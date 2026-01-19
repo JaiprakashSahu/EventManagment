@@ -1,88 +1,80 @@
-'use client';
+export default function EventCard({ event, index }) {
+    // Generate a consistent placeholder image based on event index
+    const placeholderImages = [
+        'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=250&fit=crop', // Conference
+        'https://images.unsplash.com/photo-1511578314322-379afb476865?w=400&h=250&fit=crop', // Meeting
+        'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=400&h=250&fit=crop', // Party
+        'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400&h=250&fit=crop', // Event
+        'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=400&h=250&fit=crop', // Business
+        'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=400&h=250&fit=crop', // Networking
+    ];
 
-export default function EventCard({ event, index = 0 }) {
-    const { title, description, date, attendees, category } = event;
-
-    const categoryColors = {
-        'Tech': 'from-blue-500 to-cyan-400',
-        'Music': 'from-pink-500 to-rose-400',
-        'Business': 'from-amber-500 to-orange-400',
-        'Sports': 'from-green-500 to-emerald-400',
-        'Art': 'from-purple-500 to-violet-400',
-        'Default': 'from-indigo-500 to-purple-400',
-    };
-
-    const gradientClass = categoryColors[category] || categoryColors['Default'];
+    const imageUrl = placeholderImages[index % placeholderImages.length];
 
     return (
-        <div
-            className="group relative bg-[#1a1a24] rounded-2xl overflow-hidden border border-[#2a2a3a] hover:border-indigo-500/50 transition-all duration-500 hover:shadow-xl hover:shadow-indigo-500/10 hover:-translate-y-1"
-            style={{
-                animationDelay: `${index * 0.1}s`,
-                opacity: 0,
-                animation: 'fadeInUp 0.6s ease-out forwards'
-            }}
-        >
-            {/* Gradient accent bar */}
-            <div className={`h-1 bg-gradient-to-r ${gradientClass}`} />
+        <div className="group cursor-pointer overflow-hidden" style={{
+            transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
+        }}>
+            {/* Image */}
+            <div className="relative rounded-lg overflow-hidden mb-3" style={{
+                transform: 'translateZ(0)', /* GPU acceleration */
+            }}>
+                <img
+                    src={imageUrl}
+                    alt={event.title}
+                    className="w-full h-48 object-cover"
+                    style={{
+                        transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease'
+                    }}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = 'scale(1.08)';
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'scale(1)';
+                    }}
+                    onError={(e) => {
+                        e.target.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="250"%3E%3Crect fill="%23667eea" width="400" height="250"/%3E%3C/svg%3E';
+                    }}
+                />
 
-            <div className="p-6">
-                {/* Category badge */}
-                <div className="flex items-center justify-between mb-4">
-                    <span className={`px-3 py-1 rounded-full text-xs font-semibold bg-gradient-to-r ${gradientClass} bg-opacity-20 text-white`}>
-                        {category || 'General'}
-                    </span>
-                    <span className="text-sm text-gray-500">
-                        {date}
-                    </span>
-                </div>
-
-                {/* Title */}
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors duration-300 line-clamp-1">
-                    {title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-gray-400 text-sm mb-4 line-clamp-2">
-                    {description}
-                </p>
-
-                {/* Footer */}
-                <div className="flex items-center justify-between pt-4 border-t border-[#2a2a3a]">
-                    <div className="flex items-center gap-2">
-                        {/* Attendee avatars placeholder */}
-                        <div className="flex -space-x-2">
-                            {[...Array(Math.min(attendees || 3, 3))].map((_, i) => (
-                                <div
-                                    key={i}
-                                    className="w-8 h-8 rounded-full bg-gradient-to-br from-indigo-500 to-purple-500 border-2 border-[#1a1a24] flex items-center justify-center text-xs text-white font-medium"
-                                >
-                                    {String.fromCharCode(65 + i)}
-                                </div>
-                            ))}
-                        </div>
-                        <span className="text-sm text-gray-500">
-                            {attendees || '0'} attending
-                        </span>
-                    </div>
-
-                    {/* View button */}
-                    <button className="text-sm font-medium text-indigo-400 hover:text-indigo-300 transition-colors duration-300 flex items-center gap-1 group/btn">
-                        View
-                        <svg
-                            className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform duration-300"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                    </button>
-                </div>
+                {/* Overlay gradient */}
+                <div
+                    className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100"
+                    style={{
+                        transition: 'opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
+                    }}
+                />
             </div>
 
-            {/* Hover glow effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/0 via-purple-500/0 to-pink-500/0 group-hover:from-indigo-500/5 group-hover:via-purple-500/5 group-hover:to-pink-500/5 transition-all duration-500 pointer-events-none" />
+            {/* Content */}
+            <div>
+                {/* Title */}
+                <h3
+                    className="text-white font-semibold text-base mb-2 line-clamp-2 group-hover:text-indigo-400"
+                    style={{
+                        transition: 'color 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+                    }}
+                >
+                    {event.title}
+                </h3>
+
+                {/* Meta info */}
+                <div className="flex items-center gap-2 text-sm text-gray-400 mb-1">
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <span>{event.createdAt}</span>
+                </div>
+
+                {/* Location */}
+                <div className="flex items-center gap-2 text-sm text-gray-500">
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    <span className="truncate">Online Event</span>
+                </div>
+            </div>
         </div>
     );
 }
