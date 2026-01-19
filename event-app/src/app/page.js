@@ -20,8 +20,6 @@ export default function Home() {
   const [location, setLocation] = useState('');
   const [guestEmail, setGuestEmail] = useState('');
   const [guests, setGuests] = useState([]);
-  const [notificationEmail, setNotificationEmail] = useState(true);
-  const [notificationSlack, setNotificationSlack] = useState(false);
   const [reminder, setReminder] = useState('1 hour before event');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
@@ -248,49 +246,20 @@ export default function Home() {
               )}
             </div>
 
-            {/* Notification and Reminder Row */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-              {/* Notification */}
-              <div>
-                <label className="block text-gray-900 text-sm font-medium mb-3">Notification</label>
-                <div className="flex items-center gap-3">
-                  <button
-                    type="button"
-                    onClick={() => setNotificationEmail(!notificationEmail)}
-                    className={`px-4 py-2 rounded-lg border transition-colors text-sm font-medium ${notificationEmail
-                      ? 'bg-teal-500 text-white border-teal-500'
-                      : 'bg-white text-gray-700 border-gray-300 hover:border-gray-400'
-                      }`}
-                  >
-                    Email
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setNotificationSlack(!notificationSlack)}
-                    className={`px-4 py-2 rounded-lg border transition-colors text-sm font-medium ${notificationSlack
-                      ? 'bg-teal-500 text-white border-teal-500'
-                      : 'bg-white text-gray-700 border-gray-300 hover:border-gray-400'
-                      }`}
-                  >
-                    Slack
-                  </button>
-                </div>
-              </div>
 
-              {/* Set Reminder */}
-              <div>
-                <label className="block text-gray-900 text-sm font-medium mb-3">Set reminder</label>
-                <select
-                  value={reminder}
-                  onChange={(e) => setReminder(e.target.value)}
-                  className="w-full px-4 py-2 rounded-lg bg-white border border-gray-300 text-gray-900 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500"
-                >
-                  <option>1 hour before event</option>
-                  <option>30 minutes before event</option>
-                  <option>1 day before event</option>
-                  <option>1 week before event</option>
-                </select>
-              </div>
+            {/* Set Reminder */}
+            <div>
+              <label className="block text-gray-900 text-sm font-medium mb-3">Set reminder</label>
+              <select
+                value={reminder}
+                onChange={(e) => setReminder(e.target.value)}
+                className="w-full px-4 py-2 rounded-lg bg-white border border-gray-300 text-gray-900 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500"
+              >
+                <option>1 hour before event</option>
+                <option>30 minutes before event</option>
+                <option>1 day before event</option>
+                <option>1 week before event</option>
+              </select>
             </div>
 
             {/* Create Button */}
