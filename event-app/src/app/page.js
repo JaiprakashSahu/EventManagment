@@ -76,7 +76,7 @@ export default function Home() {
     <div className="min-h-screen" style={{ background: '#f0f4f3' }}>
       {/* Navigation */}
       <nav className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <Link href="/" className="text-2xl font-serif italic text-gray-900">
             1.ook
           </Link>
@@ -93,8 +93,8 @@ export default function Home() {
       </nav>
 
       {/* Create Event Card */}
-      <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 py-12">
-        <div className="w-full max-w-2xl bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
+      <div className="min-h-[calc(100vh-4rem)] flex items-center justify-center px-3 sm:px-4 py-8 sm:py-12">
+        <div className="w-full max-w-2xl bg-white rounded-2xl p-4 sm:p-8 border border-gray-200 shadow-sm">
           {/* Header */}
           <h1 className="text-3xl font-bold text-gray-900 mb-6 pb-6 border-b border-gray-200">
             Create Event
@@ -111,7 +111,7 @@ export default function Home() {
             {/* Title Section */}
             <div>
               <label className="block text-gray-900 text-sm font-medium mb-3">Title</label>
-              <div className="flex items-center gap-3">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                 <input
                   type="text"
                   value={title}
@@ -123,7 +123,7 @@ export default function Home() {
                 <button
                   type="button"
                   onClick={() => setShowDescription(!showDescription)}
-                  className="px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-600 hover:text-gray-900 hover:border-gray-400 transition-colors text-sm flex items-center gap-2"
+                  className="px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-600 hover:text-gray-900 hover:border-gray-400 transition-colors text-sm flex items-center justify-center gap-2 whitespace-nowrap"
                 >
                   <span>+</span>
                   Add description
@@ -141,7 +141,7 @@ export default function Home() {
             </div>
 
             {/* Date, Time, Duration Row */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-2 sm:gap-4">
               <div>
                 <label className="block text-gray-900 text-sm font-medium mb-3">Date</label>
                 <input
@@ -182,7 +182,7 @@ export default function Home() {
             {/* Location Section */}
             <div>
               <label className="block text-gray-900 text-sm font-medium mb-3">Location</label>
-              <div className="flex items-center gap-3">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                 <input
                   type="text"
                   value={location}
@@ -192,7 +192,7 @@ export default function Home() {
                 />
                 <button
                   type="button"
-                  className="px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-600 hover:text-gray-900 hover:border-gray-400 transition-colors text-sm flex items-center gap-2"
+                  className="px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-600 hover:text-gray-900 hover:border-gray-400 transition-colors text-sm flex items-center justify-center gap-2 whitespace-nowrap"
                 >
                   <span>+</span>
                   Set meeting room
@@ -248,7 +248,7 @@ export default function Home() {
             </div>
 
             {/* Notification and Reminder Row */}
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {/* Notification */}
               <div>
                 <label className="block text-gray-900 text-sm font-medium mb-3">Notification</label>

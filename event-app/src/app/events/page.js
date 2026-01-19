@@ -93,7 +93,7 @@ export default function EventsPage() {
         <div className="min-h-screen" style={{ background: '#f0f4f3' }}>
             {/* Navigation */}
             <nav className="bg-white border-b border-gray-200">
-                <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
                     <Link href="/" className="text-2xl font-serif italic text-gray-900">
                         1.ook
                     </Link>
@@ -110,9 +110,9 @@ export default function EventsPage() {
             </nav>
 
             {/* Hero Section */}
-            <div className="max-w-7xl mx-auto px-6 py-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
                 <div className="max-w-2xl">
-                    <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                         Curated gatherings for creative souls
                     </h1>
                     <p className="text-gray-600 mb-8 leading-relaxed">
