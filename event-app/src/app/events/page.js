@@ -7,6 +7,7 @@ import { getUserEvents } from '@/lib/eventService';
 import { getUserStats, formatEventDate, formatMemberDate } from '@/lib/statsService';
 import UserMenu from '@/components/UserMenu';
 import StatsCard from '@/components/StatsCard';
+import MobileNav from '@/components/MobileNav';
 
 export default function EventsPage() {
     const { user } = useAuth();
@@ -92,11 +93,14 @@ export default function EventsPage() {
     return (
         <div className="min-h-screen" style={{ background: '#f0f4f3' }}>
             {/* Navigation */}
-            <nav className="bg-white border-b border-gray-200">
+            <nav className="bg-white border-b border-gray-200 relative">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-                    <Link href="/" className="text-2xl font-serif italic text-gray-900">
-                        1.ook
-                    </Link>
+                    <div className="flex items-center gap-4">
+                        <MobileNav />
+                        <Link href="/" className="text-2xl font-serif italic text-gray-900">
+                            1.ook
+                        </Link>
+                    </div>
                     <div className="flex items-center gap-8">
                         <div className="hidden md:flex items-center gap-8">
                             <Link href="/events" className="text-gray-700 hover:text-gray-900 text-sm">Browse Events</Link>
