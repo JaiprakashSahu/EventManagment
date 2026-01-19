@@ -16,7 +16,7 @@ export default function Home() {
   const [showDescription, setShowDescription] = useState(false);
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
-  const [duration, setDuration] = useState('1h 45m');
+  const [endTime, setEndTime] = useState('');
   const [location, setLocation] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
@@ -147,15 +147,14 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Duration */}
+            {/* End Time */}
             <div>
-              <label className="block text-gray-900 text-sm font-medium mb-3">Duration</label>
+              <label className="block text-gray-900 text-sm font-medium mb-3">End Time</label>
               <input
-                type="text"
-                value={duration}
-                onChange={(e) => setDuration(e.target.value)}
-                placeholder="e.g., 1h 30m"
-                className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500"
+                type="time"
+                value={endTime}
+                onChange={(e) => setEndTime(e.target.value)}
+                className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 cursor-pointer"
               />
             </div>
 
