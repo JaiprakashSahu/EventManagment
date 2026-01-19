@@ -15,6 +15,7 @@ export default function EventsPage() {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const [activeFilter, setActiveFilter] = useState('All');
+    const [selectedEvent, setSelectedEvent] = useState(null);
 
     // Stats state
     const [stats, setStats] = useState({
@@ -237,7 +238,10 @@ export default function EventsPage() {
                                     </div>
 
                                     {/* Action Button */}
-                                    <button className="w-full px-4 py-3 rounded-lg font-medium text-gray-700 bg-white border border-gray-300 hover:border-gray-400 hover:bg-gray-50 transition-colors">
+                                    <button
+                                        onClick={() => setSelectedEvent(event)}
+                                        className="w-full px-4 py-3 rounded-lg font-medium text-gray-700 bg-white border border-gray-300 hover:border-gray-400 hover:bg-gray-50 transition-colors"
+                                    >
                                         See Details
                                     </button>
                                 </div>
@@ -246,6 +250,79 @@ export default function EventsPage() {
                     </div>
                 )}
             </div>
+
+            {/* Event Details Modal */}
+            {selectedEvent && (
+                <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={() => setSelectedEvent(null)}>
+                    <div
+                        className="bg-white rounded-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        {/* Modal Header */}
+                        <div className="p-6 border-b border-gray-200">
+                            <div className="flex items-start justify-between">
+                                <h2 className="text-2xl font-bold text-gray-900 pr-4">{selectedEvent.title}</h2>
+                                <button
+                                    onClick={() => setSelectedEvent(null)}
+                                    className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
+                                >
+                                    <svg className="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Modal Content */}
+                        <div className="p-6 space-y-4">
+                            {/* Date & Time */}
+                            <div className="flex items-center gap-3 text-gray-700">
+                                <div className="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center">
+                                    <svg className="w-5 h-5 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p className="font-medium">Date & Time</p>
+                                    <p className="text-sm text-gray-500">{selectedEvent.date || 'Not set'} • {selectedEvent.time || 'Not set'}</p>
+                                </div>
+                            </div>
+
+                            {/* Location */}
+                            <div className="flex items-center gap-3 text-gray-700">
+                                <div className="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center">
+                                    <svg className="w-5 h-5 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p className="font-medium">Location</p>
+                                    <p className="text-sm text-gray-500">{selectedEvent.location || 'Not set'}</p>
+                                </div>
+                            </div>
+
+                            {/* Description */}
+                            {selectedEvent.description && (
+                                <div className="pt-4 border-t border-gray-200">
+                                    <p className="font-medium text-gray-900 mb-2">Description</p>
+                                    <p className="text-gray-600 whitespace-pre-wrap">{selectedEvent.description}</p>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Modal Footer */}
+                        <div className="p-6 border-t border-gray-200">
+                            <button
+                                onClick={() => setSelectedEvent(null)}
+                                className="w-full px-4 py-3 rounded-lg font-medium text-white bg-teal-500 hover:bg-teal-600 transition-colors"
+                            >
+                                Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
