@@ -198,19 +198,6 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 | **State** | React Context API |
 | **Deployment** | Vercel with auto-deploy |
 
----
-
-## 📈 Future Enhancements
-
-- [ ] Edit & delete events
-- [ ] Event images & banners
-- [ ] Email notifications
-- [ ] Calendar view integration
-- [ ] Event sharing & collaboration
-- [ ] Analytics dashboard
-
----
-
 ## 👤 Author
 
 <p align="center">
