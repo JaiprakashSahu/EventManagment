@@ -1,126 +1,157 @@
-# EventHub – Event Management Web App
+<p align="center">
+  <img src="https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js"/>
+  <img src="https://img.shields.io/badge/Firebase-Auth-orange?style=for-the-badge&logo=firebase&logoColor=white" alt="Firebase"/>
+  <img src="https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind"/>
+  <img src="https://img.shields.io/badge/Vercel-Deployed-black?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel"/>
+</p>
 
-EventHub is a modern event management web application that allows users to securely create, view, and manage their personal events through a clean, dashboard-style interface. The application focuses on simplicity, real data, and a professional SaaS-like user experience.
+<h1 align="center">🎉 Event Management Web Application</h1>
 
----
+<p align="center">
+  <strong>A modern, full-stack event management platform built with Next.js, Firebase & Tailwind CSS</strong>
+</p>
 
-## 🚀 Live Demo
-
-👉 **Live URL:** (https://event-managment-nu.vercel.app/) 
-
-👉 **GitHub Repo:** (https://github.com/JaiprakashSahu/EventManagment)
-
----
-
-## 🧠 What This App Does (In Simple Terms)
-
-EventHub acts as a **personal event organizer**.
-
-A user can:
-- ✅ Sign in securely using Google
-- ✅ Create events with title, date, time, location, and description
-- ✅ View all their created events in a dashboard
-- ✅ Filter events by status (All, Upcoming, Completed, Draft)
-- ✅ See real-time statistics about their activity
-
-**All data is user-specific and private.**
+<p align="center">
+  <a href="https://event-managment-nu.vercel.app">
+    <img src="https://img.shields.io/badge/🚀_Live_Demo-Visit_App-14b8a6?style=for-the-badge" alt="Live Demo"/>
+  </a>
+  <a href="https://github.com/JaiprakashSahu/EventManagment">
+    <img src="https://img.shields.io/badge/📂_Source_Code-GitHub-181717?style=for-the-badge&logo=github" alt="GitHub"/>
+  </a>
+</p>
 
 ---
 
-## 🧩 Core Features
+## 📌 Overview
 
-### 🔐 Authentication
-- Google Sign-In using Firebase Authentication
-- Secure, user-specific access
-- Automatic user profile creation in Firestore
+> Securely create, manage, and view your personal events with a clean, modern dashboard interface.
 
-### 📝 Event Creation
-Create events with:
-- Event Title & Description
-- Date, Time & Duration
-- Location
-- Guest invitations (via email)
-- Notification preferences (Email/Slack)
-- Reminder settings
-
-Events are linked to the logged-in user and timestamped using Firestore server time.
-
-### 📊 Events Dashboard
-- Modern, light-themed UI with "1.ook" branding
-- Card-based events listing with images
-- Filter tabs: **All | Upcoming | Completed | Draft**
-- Displays event title, date, time, and location
-- Clean empty state when no events exist
-
-### 📈 Real-Time Dashboard Stats
-| Metric | Description |
-|--------|-------------|
-| **Total Events Created** | Count of all user's events |
-| **Events This Month** | Events created in current calendar month |
-| **Latest Event Created** | Date of most recent event |
-| **Member Since** | User's account creation date |
-
-> ⚡ All stats are calculated dynamically from Firestore — **no fake numbers!**
-
-### 🎨 UI / UX
-- Fully responsive (mobile, tablet, desktop)
-- Light, premium SaaS-style design
-- Built entirely with Tailwind CSS
-- Consistent navigation across all pages
-- User profile dropdown with sign-out option
+| Feature | Description |
+|---------|-------------|
+| 🔐 **Google Sign-In** | Secure authentication via Firebase |
+| 📅 **Event Creation** | Create events with title, date, time, location |
+| 📊 **Dashboard** | View & filter your events (All, Upcoming, Completed, Draft) |
+| 📈 **Real-Time Stats** | Dynamic statistics from your actual data |
+| 🔒 **Private Data** | User-scoped access with Firestore rules |
+| 📱 **Responsive** | Works beautifully on mobile, tablet & desktop |
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Technology | Purpose |
-|------------|---------|
-| **Next.js 15** | Frontend Framework (App Router) |
-| **React 19** | UI Library |
-| **Tailwind CSS** | Styling |
-| **Firebase Auth** | Google Authentication |
-| **Firebase Firestore** | NoSQL Database |
-| **Vercel** | Deployment |
+<table align="center">
+<tr>
+<td align="center" width="120">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" width="48" height="48" alt="Next.js" />
+<br><strong>Next.js 16</strong>
+</td>
+<td align="center" width="120">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" width="48" height="48" alt="React" />
+<br><strong>React</strong>
+</td>
+<td align="center" width="120">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" width="48" height="48" alt="Firebase" />
+<br><strong>Firebase</strong>
+</td>
+<td align="center" width="120">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" width="48" height="48" alt="Tailwind" />
+<br><strong>Tailwind CSS</strong>
+</td>
+<td align="center" width="120">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" width="48" height="48" alt="Vercel" />
+<br><strong>Vercel</strong>
+</td>
+</tr>
+</table>
+
+---
+
+## ✨ Key Features
+
+### 🔐 Authentication
+- Google Sign-In using Firebase Authentication
+- Persistent user sessions
+- Secure authorized domain protection
+
+### 📅 Event Management
+- Create events with **title**, **description**, **date**, **time**, **location**
+- Invite guests via email
+- Set notification preferences & reminders
+
+### 📋 Events Dashboard
+- **Filter tabs**: All | Upcoming | Completed | Draft
+- Card-based event listing with images
+- Sorted by creation date (latest first)
+- Clean empty-state UI
+
+### 📈 Real-Time Statistics
+| Metric | Description |
+|--------|-------------|
+| **Total Events** | Count of all your events |
+| **This Month** | Events created in current month |
+| **Latest Event** | Date of most recent event |
+| **Member Since** | Your account creation date |
+
+> ⚡ All stats calculated dynamically — **no fake numbers!**
 
 ---
 
 ## 🗂️ Firestore Data Structure
 
-### Users Collection
-```
-users/
-  {userId}/
-    uid: string
-    firstName: string
-    lastName: string
-    email: string
-    photoURL: string
-    createdAt: timestamp
-    lastLoginAt: timestamp
-```
+```javascript
+// Users Collection
+users/{userId} {
+  uid: string,
+  firstName: string,
+  lastName: string,
+  email: string,
+  photoURL: string,
+  createdAt: timestamp,
+  lastLoginAt: timestamp
+}
 
-### Events Collection
-```
-events/
-  {eventId}/
-    title: string
-    description: string
-    date: string
-    time: string
-    duration: string
-    location: string
-    guests: array
-    notification: string
-    reminder: string
-    userId: string
-    createdAt: timestamp
+// Events Collection
+events/{eventId} {
+  title: string,
+  description: string,
+  date: string,
+  time: string,
+  location: string,
+  guests: array,
+  userId: string,
+  createdAt: timestamp
+}
 ```
 
 ---
 
-## 🔑 Environment Variables
+## 🔒 Firestore Security Rules
 
-Create a `.env.local` file in the project root:
+```javascript
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /users/{userId} {
+      allow read, write: if request.auth != null 
+                         && request.auth.uid == userId;
+    }
+
+    match /events/{eventId} {
+      allow create: if request.auth != null 
+                    && request.auth.uid == request.resource.data.userId;
+      allow read, update, delete: if request.auth != null 
+                                  && request.auth.uid == resource.data.userId;
+    }
+  }
+}
+```
+
+---
+
+## ⚙️ Environment Variables
+
+Create `.env.local` in project root:
 
 ```env
 NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
@@ -131,150 +162,67 @@ NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
 NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
 ```
 
-> ⚠️ **Never commit `.env.local` to GitHub.**
+> ⚠️ **Never commit `.env.local` to GitHub!**
 
 ---
 
-## 🧪 Local Setup Instructions
+## 🚀 Quick Start
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-username/eventhub.git
-   cd eventhub
-   ```
+```bash
+# Clone the repository
+git clone https://github.com/JaiprakashSahu/EventManagment.git
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
+# Navigate to project
+cd EventManagment/event-app
 
-3. **Add environment variables**
-   - Create `.env.local` file
-   - Add your Firebase configuration
+# Install dependencies
+npm install
 
-4. **Run the development server**
-   ```bash
-   npm run dev
-   ```
-
-5. **Open in browser**
-   ```
-   http://localhost:3000
-   ```
-
----
-
-## 🔍 How the App Works (Flow)
-
-```mermaid
-flowchart LR
-    A[User visits app] --> B[Login with Google]
-    B --> C[Profile saved to Firestore]
-    C --> D[Create events]
-    D --> E[Events saved with userId]
-    E --> F[Dashboard shows user's events]
-    F --> G[Stats update automatically]
+# Start development server
+npm run dev
 ```
 
-1. User logs in with Google
-2. User profile is stored in Firestore
-3. User creates events with all details
-4. Events are saved and linked to the user
-5. Events page fetches and displays only the user's events
-6. Dashboard stats update automatically based on Firestore data
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## 📁 Project Structure
+## 🧠 Engineering Highlights
 
-```
-event-app/
-├── src/
-│   ├── app/
-│   │   ├── page.js          # Event creation page
-│   │   ├── events/page.js   # Events dashboard
-│   │   ├── login/page.js    # Login page
-│   │   ├── about/page.js    # About page
-│   │   ├── community/page.js # Community page
-│   │   └── layout.js        # Root layout
-│   ├── components/
-│   │   ├── UserMenu.jsx     # Profile dropdown
-│   │   ├── StatsCard.jsx    # Dashboard stat cards
-│   │   └── ...
-│   ├── context/
-│   │   └── AuthContext.jsx  # Authentication provider
-│   └── lib/
-│       ├── firebase.js      # Firebase configuration
-│       ├── eventService.js  # Event CRUD operations
-│       └── statsService.js  # Dashboard statistics
-├── public/
-├── .env.local               # Environment variables
-└── package.json
-```
+| Aspect | Implementation |
+|--------|----------------|
+| **Routing** | Next.js App Router (filesystem-based) |
+| **Auth** | Firebase with Google OAuth |
+| **Database** | Firestore with user-scoped queries |
+| **Security** | Production-grade Firestore rules |
+| **Styling** | Tailwind CSS with responsive design |
+| **State** | React Context API |
+| **Deployment** | Vercel with auto-deploy |
 
 ---
 
-## 🧠 Design Decisions
+## 📈 Future Enhancements
 
-| Decision | Rationale |
-|----------|-----------|
-| **User-specific data only** | No public or marketplace events for simplicity |
-| **No fake metrics** | All dashboard numbers are computed from real data |
-| **Simple but scalable** | Architecture supports future enhancements |
-| **Light theme** | Professional, accessible, modern aesthetic |
-| **Status-based filters** | Real-world event management pattern |
-
----
-
-## 🧑💼 Interview-Ready Project Summary
-
-> EventHub is a personal event management application that demonstrates **authentication**, **Firestore data modeling**, **CRUD operations**, and **modern UI design**. The project focuses on **real data**, **clean UX**, and **scalable architecture** rather than over-engineering.
-
-**Key Technical Highlights:**
-- Firebase Authentication with Google provider
-- Firestore database with user-scoped queries
-- Real-time statistics computed from database
-- Responsive design with Tailwind CSS
-- Next.js App Router with client components
-- Context API for state management
-
----
-
-## 🚧 Possible Future Enhancements
-
-- [ ] Edit & delete events (full CRUD)
-- [ ] Event details page
-- [ ] Search functionality
-- [ ] Realtime updates with Firestore listeners
-- [ ] User profile page
-- [ ] Event sharing/collaboration
+- [ ] Edit & delete events
+- [ ] Event images & banners
+- [ ] Email notifications
 - [ ] Calendar view integration
-- [ ] Email notifications via Firebase Functions
+- [ ] Event sharing & collaboration
+- [ ] Analytics dashboard
 
 ---
 
-## 📸 Screenshots
+## 👤 Author
 
-| Login Page | Events Dashboard |
-|------------|------------------|
-| ![Login](screenshots/login.png) | ![Dashboard](screenshots/dashboard.png) |
+<p align="center">
+  <strong>Jaiprakash Sahu</strong><br>
+  Full Stack Developer
+</p>
 
-| Event Creation | User Menu |
-|----------------|-----------|
-| ![Create](screenshots/create.png) | ![Menu](screenshots/menu.png) |
-
----
-
-## 📄 License
-
-This project is for **learning and portfolio purposes**.
-
----
-
-## 👨‍💻 Author
-
-**Jaiprakash Sahu**  
-📧 jaiprakashsahu058@gmail.com
+<p align="center">
+  <a href="https://github.com/JaiprakashSahu">
+    <img src="https://img.shields.io/badge/GitHub-JaiprakashSahu-181717?style=for-the-badge&logo=github" alt="GitHub"/>
+  </a>
+</p>
 
 ---
 
