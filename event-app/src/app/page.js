@@ -125,15 +125,15 @@ export default function Home() {
               )}
             </div>
 
-            {/* Date, Time, Duration Row */}
-            <div className="grid grid-cols-3 gap-2 sm:gap-4">
+            {/* Date and Time Row */}
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <div>
                 <label className="block text-gray-900 text-sm font-medium mb-3">Date</label>
                 <input
                   type="date"
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 cursor-pointer"
+                  className="w-full px-3 sm:px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 cursor-pointer"
                 />
               </div>
               <div>
@@ -142,27 +142,32 @@ export default function Home() {
                   type="time"
                   value={time}
                   onChange={(e) => setTime(e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 cursor-pointer"
-                />
-              </div>
-              <div>
-                <label className="block text-gray-900 text-sm font-medium mb-3">Duration</label>
-                <input
-                  type="text"
-                  value={duration}
-                  onChange={(e) => setDuration(e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500"
+                  className="w-full px-3 sm:px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 cursor-pointer"
                 />
               </div>
             </div>
 
-            {/* Info Message */}
-            <div className="flex items-center gap-2 text-sm text-gray-600">
-              <svg className="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              <span>This event will take place on the {date} from {time} until 03:45 PM</span>
+            {/* Duration */}
+            <div>
+              <label className="block text-gray-900 text-sm font-medium mb-3">Duration</label>
+              <input
+                type="text"
+                value={duration}
+                onChange={(e) => setDuration(e.target.value)}
+                placeholder="e.g., 1h 30m"
+                className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500"
+              />
             </div>
+
+            {/* Info Message - only show when date and time are set */}
+            {date && time && (
+              <div className="flex items-center gap-2 text-sm text-gray-600">
+                <svg className="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span>Event scheduled for {date} at {time}</span>
+              </div>
+            )}
 
             {/* Location Section */}
             <div>
