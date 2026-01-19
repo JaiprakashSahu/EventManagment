@@ -97,9 +97,6 @@ export default function EventsPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
                     <div className="flex items-center gap-4">
                         <MobileNav />
-                        <Link href="/" className="text-2xl font-serif italic text-gray-900">
-                            1.ook
-                        </Link>
                     </div>
                     <div className="flex items-center gap-8">
                         <div className="hidden md:flex items-center gap-8">
