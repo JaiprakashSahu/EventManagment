@@ -6,8 +6,9 @@ EventHub is a modern event management web application that allows users to secur
 
 ## 🚀 Live Demo
 
-👉 **Live URL:** [Add your deployed link here]  
-👉 **GitHub Repo:** [Current Repository]
+👉 **Live URL:** (https://event-managment-nu.vercel.app/) 
+
+👉 **GitHub Repo:** (https://github.com/JaiprakashSahu/EventManagment)
 
 ---
 
