@@ -126,7 +126,7 @@ export default function Home() {
             </div>
 
             {/* Date and Start Time Row */}
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+            <div className="grid grid-cols-2 gap-4 sm:gap-6">
               <div>
                 <label className="block text-gray-900 text-sm font-medium mb-2">Date</label>
                 <input
