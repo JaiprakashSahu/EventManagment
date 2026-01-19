@@ -18,22 +18,8 @@ export default function Home() {
   const [time, setTime] = useState('02:00 PM');
   const [duration, setDuration] = useState('1h 45m');
   const [location, setLocation] = useState('');
-  const [guestEmail, setGuestEmail] = useState('');
-  const [guests, setGuests] = useState([]);
-  const [reminder, setReminder] = useState('1 hour before event');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
-
-  const handleAddGuest = () => {
-    if (guestEmail && guestEmail.includes('@')) {
-      setGuests([...guests, { email: guestEmail, avatar: `https://ui-avatars.com/api/?name=${guestEmail}&background=random` }]);
-      setGuestEmail('');
-    }
-  };
-
-  const handleRemoveGuest = (index) => {
-    setGuests(guests.filter((_, i) => i !== index));
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -197,69 +183,6 @@ export default function Home() {
                   Set meeting room
                 </button>
               </div>
-            </div>
-
-            {/* Add Guests Section */}
-            <div>
-              <label className="block text-gray-900 text-sm font-medium mb-3">Add guests</label>
-              <div className="flex items-center gap-3 mb-4">
-                <input
-                  type="email"
-                  value={guestEmail}
-                  onChange={(e) => setGuestEmail(e.target.value)}
-                  onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), handleAddGuest())}
-                  placeholder="Guest email"
-                  className="flex-1 px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500"
-                />
-                <button
-                  type="button"
-                  onClick={handleAddGuest}
-                  className="px-6 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 hover:border-gray-400 transition-colors text-sm font-medium"
-                >
-                  Add
-                </button>
-              </div>
-
-              {/* Guest Avatars */}
-              {guests.length > 0 && (
-                <div className="flex items-center gap-2">
-                  {guests.map((guest, index) => (
-                    <div key={index} className="relative group">
-                      <img
-                        src={guest.avatar}
-                        alt={guest.email}
-                        className="w-12 h-12 rounded-full border-2 border-gray-300"
-                      />
-                      <button
-                        type="button"
-                        onClick={() => handleRemoveGuest(index)}
-                        className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-gray-700 text-white flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-opacity"
-                      >
-                        ×
-                      </button>
-                    </div>
-                  ))}
-                  {guests.length > 0 && (
-                    <span className="text-gray-600 text-sm ml-2">+{guests.length}</span>
-                  )}
-                </div>
-              )}
-            </div>
-
-
-            {/* Set Reminder */}
-            <div>
-              <label className="block text-gray-900 text-sm font-medium mb-3">Set reminder</label>
-              <select
-                value={reminder}
-                onChange={(e) => setReminder(e.target.value)}
-                className="w-full px-4 py-2 rounded-lg bg-white border border-gray-300 text-gray-900 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500"
-              >
-                <option>1 hour before event</option>
-                <option>30 minutes before event</option>
-                <option>1 day before event</option>
-                <option>1 week before event</option>
-              </select>
             </div>
 
             {/* Create Button */}
