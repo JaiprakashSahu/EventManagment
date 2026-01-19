@@ -253,17 +253,6 @@ event-app/
 
 ---
 
-## 📸 Screenshots
-
-| Login Page | Events Dashboard |
-|------------|------------------|
-| ![Login](screenshots/login.png) | ![Dashboard](screenshots/dashboard.png) |
-
-| Event Creation | User Menu |
-|----------------|-----------|
-| ![Create](screenshots/create.png) | ![Menu](screenshots/menu.png) |
-
----
 
 ## 📄 License
 
