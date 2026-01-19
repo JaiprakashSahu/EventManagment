@@ -114,10 +114,10 @@ export default function EventsPage() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
                 <div className="max-w-2xl">
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                        Curated gatherings for creative souls
+                        Manage your events in one place
                     </h1>
                     <p className="text-gray-600 mb-8 leading-relaxed">
-                        Discover unique experiences, events, and tours for both creatives and everyday folk looking to permeate through transformative art experiences.
+                        Create, organize, and track all your events effortlessly. From planning to execution, everything you build stays securely connected to your account.
                     </p>
 
                     {/* Filter Tags */}
