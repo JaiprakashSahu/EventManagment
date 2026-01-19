@@ -14,8 +14,8 @@ export default function Home() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [showDescription, setShowDescription] = useState(false);
-  const [date, setDate] = useState('Jul 14, 2021');
-  const [time, setTime] = useState('02:00 PM');
+  const [date, setDate] = useState('');
+  const [time, setTime] = useState('');
   const [duration, setDuration] = useState('1h 45m');
   const [location, setLocation] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -130,19 +130,19 @@ export default function Home() {
               <div>
                 <label className="block text-gray-900 text-sm font-medium mb-3">Date</label>
                 <input
-                  type="text"
+                  type="date"
                   value={date}
                   onChange={(e) => setDate(e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500"
+                  className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 cursor-pointer"
                 />
               </div>
               <div>
                 <label className="block text-gray-900 text-sm font-medium mb-3">Time</label>
                 <input
-                  type="text"
+                  type="time"
                   value={time}
                   onChange={(e) => setTime(e.target.value)}
-                  className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500"
+                  className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 cursor-pointer"
                 />
               </div>
               <div>
