@@ -32,21 +32,33 @@ export default function Home() {
       return;
     }
 
-    const eventData = {
-      title,
-      description,
-      date,
-      time,
-      endTime,
-      location,
-    };
+    if (!title.trim()) {
+      setError('Please enter an event title');
+      setIsSubmitting(false);
+      return;
+    }
 
-    const result = await createEvent(eventData, user.uid);
+    try {
+      const eventData = {
+        title: title.trim(),
+        description: description.trim(),
+        date,
+        time,
+        endTime,
+        location: location.trim(),
+      };
 
-    if (result.success) {
-      router.push('/events');
-    } else {
-      setError(result.error || 'Failed to create event');
+      const result = await createEvent(eventData, user.uid);
+
+      if (result.success) {
+        router.push('/events');
+      } else {
+        setError(result.error || 'Failed to create event');
+        setIsSubmitting(false);
+      }
+    } catch (err) {
+      console.error('Event creation error:', err);
+      setError('An error occurred while creating the event');
       setIsSubmitting(false);
     }
   };
