@@ -126,8 +126,8 @@ export default function Home() {
             </div>
 
             {/* Date and Start Time Row */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-              <div>
+            <div className="space-y-4 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-6">
+              <div className="max-w-[280px] sm:max-w-none">
                 <label className="block text-gray-900 text-sm font-medium mb-3">Date</label>
                 <input
                   type="date"
@@ -136,7 +136,7 @@ export default function Home() {
                   className="w-full px-4 py-3 rounded-lg bg-white border border-gray-300 text-gray-900 focus:outline-none focus:border-teal-500 focus:ring-1 focus:ring-teal-500 cursor-pointer"
                 />
               </div>
-              <div>
+              <div className="max-w-[280px] sm:max-w-none">
                 <label className="block text-gray-900 text-sm font-medium mb-3">Start Time</label>
                 <input
                   type="time"
@@ -148,7 +148,7 @@ export default function Home() {
             </div>
 
             {/* End Time */}
-            <div>
+            <div className="max-w-[280px] sm:max-w-none sm:w-1/2">
               <label className="block text-gray-900 text-sm font-medium mb-3">End Time</label>
               <input
                 type="time"
