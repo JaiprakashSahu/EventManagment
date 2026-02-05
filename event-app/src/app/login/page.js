@@ -45,8 +45,8 @@ export default function LoginPage() {
 
                         {/* Decorative elements */}
                         <div className="absolute inset-0 opacity-30">
-                            <div className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-purple-500/40 blur-3xl" />
-                            <div className="absolute bottom-1/3 right-1/4 w-40 h-40 rounded-full bg-indigo-500/40 blur-3xl" />
+                            <div className="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-purple-500/40 blur-3xl animate-float" style={{ animationDelay: '0s' }} />
+                            <div className="absolute bottom-1/3 right-1/4 w-40 h-40 rounded-full bg-indigo-500/40 blur-3xl animate-float" style={{ animationDelay: '2s' }} />
                         </div>
 
                         {/* Mountain/Desert silhouette effect */}
@@ -69,7 +69,7 @@ export default function LoginPage() {
                     {/* Content overlay */}
                     <div className="relative z-10 flex flex-col h-full justify-end p-4 pb-12">
                         {/* Tagline */}
-                        <div>
+                        <div className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
                             <h2 className="text-white text-3xl sm:text-4xl font-semibold text-center leading-tight">
                                 Create events.<br />
                                 Manage with ease.
@@ -81,7 +81,7 @@ export default function LoginPage() {
                 {/* Right Panel - Sign In Section */}
                 <div className="lg:w-1/2 p-8 sm:p-12 flex flex-col justify-center">
                     {/* Header */}
-                    <div className="mb-8 text-center">
+                    <div className="mb-8 text-center animate-fade-in-up" style={{ animationDelay: '300ms' }}>
                         <h1 className="text-3xl sm:text-4xl font-bold text-white mb-3">
                             Welcome to EventHub
                         </h1>
@@ -104,9 +104,11 @@ export default function LoginPage() {
                     <button
                         onClick={handleGoogleSignIn}
                         disabled={isLoading}
-                        className="w-full flex items-center justify-center gap-3 px-6 py-4 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 shadow-lg"
+                        className="animate-fade-in-up w-full flex items-center justify-center gap-3 px-6 py-4 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-[1.02] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 shadow-lg"
                         style={{
-                            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'
+                            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                            animationDelay: '400ms',
+                            animationFillMode: 'both'
                         }}
                     >
                         {isLoading ? (
@@ -131,7 +133,7 @@ export default function LoginPage() {
                     </button>
 
                     {/* Info text */}
-                    <p className="text-center text-gray-500 text-xs mt-6">
+                    <p className="animate-fade-in-up text-center text-gray-500 text-xs mt-6" style={{ animationDelay: '500ms', animationFillMode: 'both' }}>
                         By signing in, you agree to our{' '}
                         <a href="#" className="text-purple-400 hover:text-purple-300 transition-colors underline">
                             Terms & Conditions
